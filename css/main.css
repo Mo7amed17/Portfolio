@@ -1,0 +1,826 @@
+body{
+    scroll-behavior: smooth;
+background-color: #1e1e1e;
+color: white ;
+/* cursor: none; */
+width: 100%;
+overflow-x: hidden;
+font-family: Arial, Helvetica, sans-serif;
+}
+.loader{
+    background: #191f26 url(../media/loader.gif) no-repeat center center ;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+    background-size: 80%;
+}
+.toup{
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 99999999999;
+    display: none;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+.container{
+    padding: 100px 3% 50px;
+}
+*{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+.maintext{
+    font-weight: bold;
+}
+.home{
+    padding-bottom: 200px;
+    padding-top: 245px;
+}
+
+.intro{
+    font-size: 30px;
+display: flex;
+justify-content: center;
+position: relative;
+align-items: center;
+letter-spacing: 1px;
+}
+
+.intro ul {
+    height: 40px;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.intro ul li{
+    position: relative;
+    padding: 0px 5px 0px 0px;
+    margin: 5px 0px;
+    width: max-content;
+    animation: totop 20s steps(4) 0.5s infinite ; 
+}
+.intro ul li::before{
+    position: absolute;
+    content: "";
+    width: 100% ;
+    height: 1px;
+    right: 0%;
+    bottom: 0%;
+    background-color: rgb(4, 255, 255);
+}
+.intro ul li::after{
+    position: absolute;
+    content: "";
+    width: 100% ;
+    height: 100%;
+    right: 0%;
+    background-color: #1e1e1e;
+    animation: bordertoright 5s 0.5s steps(20) infinite  ;
+}
+@keyframes bordertoright {
+    0%{border-left: 2px solid white;
+        width: 100%;
+    }
+    50%{border-left: 2px solid white;
+        width: 0%;
+    }
+    51%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 1;
+    }
+    56%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 0;
+    }
+    61%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 1;
+    }
+    66%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 0;
+    }
+    71%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 1;
+    }
+    76%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 0;
+    }
+    80%{border-left: 2px solid white;
+        width: 0%;
+        opacity: 1;
+    }
+    100%{border-left: 2px solid white;
+        width: 100%;
+        opacity: 1;
+    }
+}
+@keyframes totop {
+    to{
+        transform: translatey(-160px);
+    }
+}
+
+.fingerprint{
+    position: fixed;
+    right: 30px;
+    top: 40px;
+    z-index: 999;
+}
+.fingerprint i{
+    background-color:rgb(0, 99, 130);
+    padding: 10px;
+    font-size: 32px;
+    border-radius: 50%;
+    transform: rotate(10deg);
+    color: white;
+    cursor: pointer;
+}
+.menu{
+    position: fixed;
+    left: -100%;
+    background-color: black;
+    top: 0%;
+    color: black;
+    padding: 30px;
+    z-index: 9999;
+    border-bottom-right-radius: 20px;
+}
+
+.menu .top{
+    text-align: center;
+    color: white;
+}
+.menu .top  img{
+width: 150px;
+padding: 3px;
+border: 5px solid #1e1e1e;
+border-radius: 10px;
+background-color: white;
+}
+.menu .top  img:hover{
+transform: scale(1.1);
+}
+.menu .top  h3:hover{
+    color: rgb(0, 99, 130);
+}
+.icons a{
+color: white;
+}
+.icons a:hover i{
+    color: black;
+    background-color: white;
+}
+.icons a i{
+font-size: 23px ;
+margin:0px 5px ;
+background-color: #131313;
+padding: 10px;
+border-radius: 50%
+}
+.bottom {
+margin-top: 10px ;
+}
+.bottom li{
+margin: 30px 0px;
+}
+.bottom a:hover {
+color: white;
+}
+.bottom a:hover i{
+color: rgb(0, 99, 130);
+}
+.bottom li a{
+color: gray;
+}
+.bottom li a i{
+margin-right: 10px;
+font-size: 23px;
+width: 28px;
+text-align: center;
+
+}
+.activemenu {
+    color:white !important;
+    font-weight: bold;
+    font-size: 24px ;
+    letter-spacing: 1px;
+}
+.activemenu i{
+color: rgb(0, 99, 130);
+font-size: 28px ;
+}
+
+.ele{
+    position: relative;
+    left: -100%;
+}
+
+.thetitle{
+    position: relative;
+    font-size: 42px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    width: fit-content;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    -webkit-text-stroke: white 0.1px;
+    color: transparent;
+    cursor: default;
+}
+.thetitle span{
+    position: absolute;
+    content: attr(data-text);
+    bottom: 0%;
+    left: 0%;
+    background-color:transparent;
+    color: white;
+    height: 100%;
+    width: 0%;
+    transition-delay: 2s;
+    transition-duration: 2s;
+    overflow: hidden;
+}
+.thetitle::after{
+    position: absolute;
+    content: "";
+    bottom: 0%;
+    left: 0%;
+    background-color: rgb(0, 99, 130);
+    height: 3px;
+    width: 102%;
+}
+
+
+.aboutme .container p{
+    font-size: 20px;
+    margin: 0px 25% 0px 0px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(0, 99, 130);
+}
+.aboutme .container h4 {
+   display: flex;
+   align-items: center;
+}
+.aboutme .container h4 span{
+   color: rgb(0, 99, 130);
+   font-size: 25px;
+   font-weight: 100;
+   margin-right: 10px;
+}
+
+
+.projects .container .data{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.projects .container .project{
+    width: 80%;
+    padding: 25px;
+    border: 2px solid gray;
+    margin-bottom: 80px;
+    border-radius: 20px;
+    cursor: default;
+
+}
+.projects .container .project h1{
+    text-align: center;
+    margin-top: 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.projects .container .project .projectimage{
+    width:100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+.projects .container .project .projectimage img{
+    width:100%;
+    height: 100%;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+.projects .container .project:hover .projectimage img{
+    transform: scale(1.1);
+    transition-duration: 0.4s;
+}
+.projects .container .project:hover h1{
+    color: rgb(0, 99, 130);
+    transition-duration: 0.6s;
+}
+.projects .container .project:hover{
+    animation: lightinig 0.8s linear  infinite alternate forwards;
+}
+@keyframes lightinig{
+    to{
+        box-shadow: 0px 0px 15px 3px gray;
+    }
+}
+
+.projects .container .project .projectbuttons{
+    margin: 20px 0px 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.projects .container .project .projectbuttons a{
+    padding: 8px 16px;
+    font-size: 22px;
+    background-color: rgb(0, 99, 130);
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    border: 3px solid rgb(0, 99, 130);
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.projects .container .project .projectbuttons a:hover{
+    background-color:white;
+    color: rgb(0, 99, 130);
+    transition-duration: 0.5s;
+}
+.projects .container .project .projecticons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.projects .container .project .projecticons div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 20px;
+}
+.projects .container .project .projecticons div h2{
+    margin: 0;
+    margin-right: 10px;
+}
+.projects .container .project .projecticons div span{
+    font-size: 20px;
+    margin-right: 4px;
+    margin-bottom: -5px;
+}
+.projects .container .project .projecticons div i{
+    font-size: 16px;
+    margin-bottom: -3px;
+}
+.projects .container .project .projecticons div:first-of-type i{
+    color: rgb(223, 183, 7);
+}
+.projects .container .project .projecticons div:last-of-type i{
+    color: rgb(168, 168, 168);
+}
+
+.skills .container {
+    padding-right: 0;
+}
+.skills .skillsphoto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.skills .skillsphoto div{
+    width: 19%;
+    margin-bottom: 60px;
+    overflow: hidden;
+    position: relative;
+    height: 120px;
+}
+.skills .skillsphoto div span{
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    position: absolute;
+    top: 0%;
+    left: -100%;
+    transition-duration: 1s;
+}
+.skills .skillsphoto div .custom{
+    width: 150%;
+}
+
+.skills .skillsphoto img{
+    width: 100%;
+    height: 100%;
+    transition-duration: 1s;
+
+}
+.skills .skillsphoto img:hover{
+    transform: rotate(360deg);
+    transition-duration: 1s;
+}
+
+footer{
+    background-color: rgba(0, 130, 150, 0.425);
+        padding: 8px 0px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: default;
+}
+footer span{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #1e1e1e;
+}
+footer span:hover{
+    color: white;
+}
+
+@media (max-width:767px) {
+    .toup{
+        font-size: 46px;
+    }
+    .intro {
+        font-size: 26px;
+        letter-spacing: 1px;
+      }
+      .intro ul li {
+        margin: 6px 0px;
+      }
+      .intro ul li:nth-of-type(2) {
+        margin: 11px 0px 0px;
+      }
+      .intro ul li:nth-of-type(3) {
+        margin: 12px 0px 0px;
+      }
+      .intro ul li:nth-of-type(4) {
+        margin: 11px 0px 0px;
+      }
+      @keyframes totop {
+        to{
+            transform: translatey(-165px);
+        }
+    }
+    .fingerprint i {
+        padding: 8px;
+        font-size: 28px;
+      }
+      .menu {
+        padding:30px 20px;
+        z-index: 9999;
+      }
+      .menu .top img {
+        width: 130px;
+      }
+      .thetitle {
+        font-size: 38px;
+        padding-bottom: 8px;
+      }
+      .aboutme .container p {
+        font-size: 18px;
+        margin: 0px 20% 0px 0px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgb(0, 99, 130);
+      }
+      .skills .skillsphoto div span {
+        width: 90px;
+        height: 90px;
+      }
+      .projects .container .project {
+        width: 90%;
+        padding: 20px;
+        margin-bottom: 60px;
+      }
+      .projects .container .project h1 {
+        font-size: 26px;
+      }
+      .projects .container .project .projectbuttons a {
+        padding: 8px 14px;
+        font-size: 20px;
+      }
+      .projects .container .project .projecticons div h2 {
+        font-size: 20px;
+      }
+      .projects .container .project .projecticons div span {
+        margin-bottom: -2px;
+      }
+}
+
+@media (max-width:580px) {
+    .toup{
+        font-size: 40px;
+    }
+    .intro {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+      .intro ul li {
+        margin: 7px 0px;
+      }
+      .intro ul li:nth-of-type(2) {
+        margin: 10px 0px 0px;
+      }
+      .intro ul li:nth-of-type(3) {
+        margin: 9.5px 0px 0px;
+      }
+      .intro ul li:nth-of-type(4) {
+        margin: 10px 0px 0px;
+      }
+      @keyframes totop {
+        to{
+            transform: translatey(-150px);
+        }
+    }
+    .menu {
+        padding:20px 15px;
+        z-index: 9999;
+      }
+      .menu .top img {
+        width: 120px;
+      }
+      .icons a i {
+        font-size: 20px;
+        padding: 8px;
+      }
+      .bottom li {
+        margin: 25px 0px;
+      }
+      .thetitle {
+        font-size: 32px;
+        padding-bottom: 6px;
+      }
+      .aboutme .container p {
+        font-size: 16px;
+        margin: 0px 15% 0px 0px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgb(0, 99, 130);
+      }
+      .aboutme .container h4 {
+        font-size: 14px;
+      }
+      .skills .skillsphoto div span {
+        width: 80px;
+        height: 70px;
+      }
+      .projects .container .project {
+        width: 90%;
+        padding: 20px;
+        margin-bottom: 50px;
+      }
+      .projects .container .project .projectimage {
+        width: 100%;
+        height: 400px;
+      }
+      .projects .container .project h1 {
+        font-size: 24px;
+      }
+      .projects .container .project .projectbuttons a {
+        padding: 7px 13px;
+        font-size: 18px;
+      }
+      .projects .container .project .projecticons div h2 {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+      .projects .container .project .projecticons div span {
+        font-size: 18px;
+        margin-right: 4px;
+        margin-bottom: -2px;
+      }
+      .projects .container .project .projecticons div i {
+        font-size: 12px;
+        margin-bottom: -1px;
+      }
+}
+
+@media (max-width:450px) {
+    .intro {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+      .intro ul li {
+        margin: 10px 0px;
+      }
+      .intro ul li:nth-of-type(2) {
+        margin: 11px 0px 0px;
+      }
+      .intro ul li:nth-of-type(3) {
+        margin: 10px 0px 0px;
+      }
+      .intro ul li:nth-of-type(4) {
+        margin: 11px 0px 0px;
+      }
+      @keyframes totop {
+        to{
+            transform: translatey(-135px);
+        }
+    }
+    .menu {
+        padding:12px 12px 0px;
+      }
+      .menu .top img {
+        width: 100px;
+      }
+      .icons a i {
+        font-size: 18px;
+        padding: 7px;
+      }
+      .bottom li {
+        margin: 20px 0px;
+        
+      }
+      .bottom li a {
+        font-size: 14px;
+      }
+      .bottom li a i {
+          margin-right: 8px;
+          font-size: 18px;
+        }
+        .activemenu {
+          font-size: 20px !important;
+        }
+        .activemenu i{
+          font-size: 22px !important;
+        }
+        .fingerprint i {
+            padding: 7px;
+            font-size: 24px;
+          }
+          .thetitle {
+            font-size: 28px;
+            padding-bottom: 4px;
+          }
+          .thetitle::after {
+            height: 2px;
+          }
+          .aboutme .container p {
+            font-size: 14px;
+            margin: 0px 12% 0px 0px;
+            padding-bottom: 15px;
+          }
+          .aboutme .container h4 {
+            font-size: 12px;
+          }
+          .skills .skillsphoto {
+            justify-content: space-around;
+          }
+          .skills .skillsphoto div {
+            width: 85px;
+            margin-bottom: 30px;
+            height: 80px;
+          }
+          .skills .skillsphoto div span {
+            width: 65px;
+            height: 60px;
+          }
+          .projects .container .project {
+            width: 90%;
+            padding: 15px;
+            margin-bottom: 40px;
+          }
+          .projects .container .project .projectimage {
+            width: 100%;
+            height: 300px;
+          }
+          .projects .container .project h1 {
+            font-size: 22px;
+          }
+          .projects .container .project .projectbuttons a {
+            padding: 6px 12px;
+            font-size: 16px;
+          }
+          .projects .container .project .projecticons div h2 {
+            font-size: 16px;
+            margin-right: 5px;
+          }
+          .projects .container .project .projecticons div span {
+            font-size: 16px;
+            margin-right: 3px;
+            margin-bottom: -2px;
+          }
+          .projects .container .project .projecticons div i {
+            font-size: 10px;
+            margin-bottom: -1px;
+          }
+          footer {
+            font-size: 28px;
+          }
+}
+
+@media (max-width:360px) {
+    .toup{
+        font-size: 36px;
+    }
+    .intro {
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+      .intro ul li {
+        margin: 12px 0px;
+      }
+      .intro ul li:nth-of-type(2) {
+        margin: 13px 0px 0px;
+      }
+      .intro ul li:nth-of-type(3) {
+        margin: 12px 0px 0px;
+      }
+      .intro ul li:nth-of-type(4) {
+        margin: 13px 0px 0px;
+      }
+      @keyframes totop {
+        to{
+            transform: translatey(-125px);
+        }
+    }
+    .menu {
+        padding:10px 10px 0px;
+      }
+      .menu .top img {
+        width: 80px;
+      }
+      .menu .top h3 {
+        font-size: 15px;
+      }
+      .icons a i {
+        font-size: 16px;
+        padding: 6px;
+      }
+      .bottom li {
+        margin: 18px 0px;
+        
+      }
+      .bottom li a {
+        font-size: 13px;
+      }
+      .bottom li a i {
+          margin-right: 6px;
+          font-size: 16px;
+        }
+        .activemenu {
+          font-size: 18px !important;
+        }
+        .activemenu i{
+          font-size: 20px !important;
+        }
+        .fingerprint i {
+            padding: 6px;
+            font-size: 22px;
+          }
+          .thetitle {
+            font-size: 26px;
+            padding-bottom: 4px;
+          }
+          .aboutme .container p {
+            font-size: 14px;
+            margin: 0px 10% 0px 0px;
+            padding-bottom: 20px;
+          }
+          .skills .skillsphoto div {
+            width: 75px;
+            margin-bottom: 20px;
+            height: 70px;
+          }
+          .skills .skillsphoto div span {
+            width: 60px;
+            height: 55px;
+          }
+          .projects .container .project {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 40px;
+          }
+          .projects .container .project .projectimage {
+            width: 100%;
+            height: 250px;
+          }
+          .projects .container .project h1 {
+            font-size: 20px;
+          }
+          .projects .container .project .projectbuttons a {
+            padding: 4px 8px;
+            font-size: 12px;
+            border: 2px solid rgb(0, 99, 130);
+          }
+          .projects .container .project .projecticons div h2 {
+            font-size: 14px;
+            margin-right: 4px;
+          }
+          .projects .container .project .projecticons div span {
+            font-size: 14px;
+            margin-right: 2px;
+            margin-bottom: -1px;
+          }
+          .projects .container .project .projecticons div i {
+            font-size: 8px;
+            margin-bottom: 0px;
+          }
+          footer {
+            font-size: 24px;
+          }
+}
